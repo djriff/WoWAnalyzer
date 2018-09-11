@@ -17,6 +17,7 @@ import Mindbender from '../Spells/Mindbender';
 import ShadowWordPain from '../Spells/ShadowWordPain';
 import VampiricTouch from '../Spells/VampiricTouch';
 import Voidform from '../Spells/Voidform';
+import DarkAscension from '../Spells/DarkAscension';
 // import ITEMS from 'common/ITEMS';
 // import ItemLink from 'common/ItemLink';
 
@@ -119,6 +120,18 @@ class Checklist extends CoreChecklist {
                 check: () => this.voidform.suggestionStackThresholds(voidform),
               })
             );
+          }),
+        ];
+      },
+    }),
+    new Rule({
+      name: 'Use Dark Ascension as often as possible',
+      description: <React.Fragment>You should use <SpellLink id={SPELLS.DARK_ASCENSION_TALENT.id} /> on cooldown.</React.Fragment>,
+      requirements: () => {
+        return [
+          new GenericCastEfficiencyRequirement({
+            spell: SPELLS.DARK_ASCENSION_TALENT,
+            onlyWithSuggestion: false,
           }),
         ];
       },
